@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - NUM_WORKERS=2
+    volumes:
+      - ./sample_audio:/app/sample_audio
+    # For GPU (optional):
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
